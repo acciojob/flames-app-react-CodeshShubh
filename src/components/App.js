@@ -32,6 +32,10 @@ const App = () => {
   const remainInputLength = renderRelationShip();
 
   const renderResult = ()=>{
+    if (!name.name1.trim() || !name.name2.trim()) {
+      setResult("Please Enter valid input");
+      return;
+    }
     setResult(relationshipMap[remainInputLength % 6])
   }
 
@@ -50,8 +54,7 @@ const App = () => {
         onChange={(e) => setname({...name , [e.target.name]:(e.target.value).trim()})}
       />
       <input
-        data-
-        testid="input2"
+        data-testid="input2"
         name="name2"
         value={name.name2} 
         placeholder="Enter second name"
